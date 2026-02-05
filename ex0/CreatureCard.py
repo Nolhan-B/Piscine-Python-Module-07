@@ -14,29 +14,25 @@ class CreatureCard(Card):
         self.health = health
 
     def play(self, game_state: dict) -> dict:
-        if self.is_playable(game_state['mana']) is True:
-            return {
-                    "card_played": self.name,
-                    "mana_used": self.cost,
-                    "effect": 'Creature summoned to battlefield'
-                    }
-        return {}
-
-    def get_card_info(self) -> dict:
+        if not self.is_playable(game_state.get("mana", 0)):
+            return {"error": "Not enough mana to play"}
         return {
-            "name": self.name,
-            "cost": self.cost,
-            "rarity": self.rarity,
-            "type": "Creature",
-            "attack": self.attack,
-            "health": self.health
+            "card_played": self.name,
+            "mana_used": self.cost,
+            "effect": "Creature summoned to battlefield"
         }
 
-    def attack_target(self, target: Card) -> dict:
-        combat_res = True if target.health - self.attack <= 0 else False
+    def attack_target(self, target):
+        damage = self.attack
+        if isinstance(target, str):
+            target_name = target
+        else:
+            target_name = target.name
+            target.health -= self.attack
+        combat_res = True
         return {
-                "attacker": self.name,
-                "target": target.name,
-                "damage_dealt": self.attack,
-                "combat_resolved": combat_res
-               }
+            "attacker": self.name,
+            "target": target_name,
+            "damage_dealt": damage,
+            "combat_resolved": combat_res
+        }
