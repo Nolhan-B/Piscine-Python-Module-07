@@ -14,7 +14,7 @@ class CreatureCard(Card):
         self.health = health
 
     def play(self, game_state: dict) -> dict:
-        if self.is_playable(game_state) is True:
+        if self.is_playable(game_state['mana']) is True:
             return {
                     "card_played": self.name,
                     "mana_used": self.cost,

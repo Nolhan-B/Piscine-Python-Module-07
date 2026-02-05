@@ -12,16 +12,16 @@ def main() -> None:
           f"{mana_dict["mana"]} mana available")
     if (dragon.is_playable(mana_dict['mana'])):
         print("Playable: True")
-        res = dragon.play(mana_dict['mana'])
+        res = dragon.play(mana_dict)
         print(res)
         print(f"\nFire Dragon attacks {goblin.name}")
         print(dragon.attack_target(goblin))
     print("Playable: False")
     print("\nTesting insufficient mana (3 available):")
     mana_dict = {'mana': 3}
-    dragon.play(mana_dict['mana'])
+    dragon.play(mana_dict)
 
-    print("\nabstract pattern successfully demonstrated!")
+    print("\nAbstract pattern successfully demonstrated!")
 
 
 if __name__ == "__main__":
