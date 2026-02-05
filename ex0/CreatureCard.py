@@ -15,13 +15,11 @@ class CreatureCard(Card):
 
     def play(self, game_state: dict) -> dict:
         if self.is_playable(game_state) is True:
-            print("Playable: True")
             return {
                     "card_played": self.name,
                     "mana_used": self.cost,
                     "effect": 'Creature summoned to battlefield'
                     }
-        print("Playable: False")
         return {}
 
     def get_card_info(self) -> dict:
