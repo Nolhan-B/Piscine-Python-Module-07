@@ -2,6 +2,7 @@ from ex3.GameEngine import GameEngine
 from ex3.FantasyCardFactory import FantasyCardFactory
 from ex3.AggressiveStrategy import AggressiveStrategy
 
+
 def main():
     print("\n=== DataDeck Game Engine ===\n")
     factory = FantasyCardFactory()
@@ -27,7 +28,7 @@ def main():
     print("\nTurn execution:")
     print("Strategy:", turn_result["strategy"])
     print("Actions:", turn_result["actions"])
-    
+
     print("\nGame Report:")
     print({
         "turns_simulated": 1,
@@ -35,7 +36,9 @@ def main():
         "total_damage": turn_result["actions"]["damage_dealt"],
         "cards_created": 4
     })
-    print("\nAbstract Factory + Strategy Pattern: Maximum flexibility achieved!")
+    print("\nAbstract Factory + Strategy Pattern: "
+          "Maximum flexibility achieved!")
+
 
 if __name__ == "__main__":
     main()

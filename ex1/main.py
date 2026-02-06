@@ -3,6 +3,7 @@ from ex1.Deck import Deck
 from ex1.SpellCard import SpellCard
 from ex1.ArtifactCard import ArtifactCard
 
+
 def main() -> None:
     print("\n=== DataDeck Deck Builder === \n")
 
@@ -10,7 +11,11 @@ def main() -> None:
     deck = Deck()
     dragon = CreatureCard("Fire Dragon", 5, "Legendary", 7, 5)
     l_bolt = SpellCard("Lightning Bolt", 3, "Common", "damage")
-    n_crystal = ArtifactCard("Mana Crystal",2, "Common", 5, "Permanent: +1 mana per turn") 
+    n_crystal = ArtifactCard("Mana Crystal",
+                             2,
+                             "Common",
+                             5,
+                             "Permanent: +1 mana per turn")
     deck.add_card(dragon)
     deck.add_card(l_bolt)
     deck.add_card(n_crystal)
@@ -26,7 +31,9 @@ def main() -> None:
         print(f"\nDrew: {card['e'].name} ({card['type']})")
         print("Play Result :", card['e'].play(mana))
 
-    print("\nPolymorphism in action: Same interface, different card behaviors!")
+    print("\nPolymorphism in action: "
+          "Same interface, different card behaviors!")
+
 
 if __name__ == "__main__":
     main()

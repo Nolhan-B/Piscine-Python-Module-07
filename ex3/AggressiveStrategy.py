@@ -4,6 +4,7 @@ from ex1.SpellCard import SpellCard
 from ex1.ArtifactCard import ArtifactCard
 from ex3.GameStrategy import GameStrategy
 
+
 class AggressiveStrategy(GameStrategy):
     def get_strategy_name(self) -> str:
         return "AggressiveStrategy"
@@ -28,13 +29,13 @@ class AggressiveStrategy(GameStrategy):
                 actions["targets_attacked"].append(attack_res["target"])
                 actions["damage_dealt"] += attack_res.get("damage_dealt", 0)
             elif isinstance(card, SpellCard):
-                spell_res = card.resolve_effect(["Enemy Player"])
+                card.resolve_effect(["Enemy Player"])
                 actions["cards_played"].append(card.name)
                 actions["mana_used"] += card.cost
                 if card.effect_type == "damage":
                     actions["damage_dealt"] += 3
             elif isinstance(card, ArtifactCard):
-                artifact_res = card.activate_ability()
+                card.activate_ability()
                 actions["cards_played"].append(card.name)
                 actions["mana_used"] += card.cost
 

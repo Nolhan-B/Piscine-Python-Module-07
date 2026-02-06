@@ -1,6 +1,7 @@
 from typing import List
 from ex0.Card import Card
 
+
 class GameEngine:
     def configure_engine(self, factory, strategy):
         self.factory = factory

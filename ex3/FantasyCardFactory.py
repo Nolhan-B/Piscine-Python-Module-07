@@ -4,6 +4,7 @@ from ex1.SpellCard import SpellCard
 from ex1.ArtifactCard import ArtifactCard
 from ex3.CardFactory import CardFactory
 
+
 class FantasyCardFactory(CardFactory):
     def create_creature(self, name_or_power=None) -> CreatureCard:
         if name_or_power == "goblin":
@@ -14,7 +15,11 @@ class FantasyCardFactory(CardFactory):
         return SpellCard("Lightning Bolt", 3, "Common", "damage")
 
     def create_artifact(self, name_or_power=None) -> ArtifactCard:
-        return ArtifactCard("Mana Crystal", 2, "Rare", 3, "Permanent: +1 mana per turn")
+        return ArtifactCard("Mana Crystal",
+                            2,
+                            "Rare",
+                            3,
+                            "Permanent: +1 mana per turn")
 
     def create_themed_deck(self, size: int) -> dict:
         deck = []

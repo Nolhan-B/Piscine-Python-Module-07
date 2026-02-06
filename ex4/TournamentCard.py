@@ -3,9 +3,17 @@ from ex2.Combatable import Combatable
 from ex4.Rankable import Rankable
 import random
 
+
 class TournamentCard(Card, Combatable, Rankable):
 
-    def __init__(self, card_id: str, name: str, cost: int, rarity: str, attack: int, health: int, base_rating: int):
+    def __init__(self,
+                 card_id: str,
+                 name: str,
+                 cost: int,
+                 rarity: str,
+                 attack: int,
+                 health: int,
+                 base_rating: int):
         Card.__init__(self, name, cost, rarity)
         self.card_id = card_id
         self.attack_power = attack

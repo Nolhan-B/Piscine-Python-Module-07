@@ -2,6 +2,7 @@ from ex4.TournamentCard import TournamentCard
 from typing import Dict
 import random
 
+
 class TournamentPlatform:
 
     def __init__(self):
@@ -31,16 +32,20 @@ class TournamentPlatform:
         }
 
     def get_leaderboard(self) -> list:
-        sorted_cards = sorted(self.cards.values(), key=lambda c: c.rating, reverse=True)
+        sorted_cards = sorted(self.cards.values(),
+                              key=lambda c: c.rating,
+                              reverse=True)
         leaderboard = []
         for i, card in enumerate(sorted_cards, 1):
             leaderboard.append(
-                f"{i}. {card.name} - Rating: {card.rating} ({card.wins}-{card.losses})"
+                f"{i}. {card.name} - Rating: "
+                f"{card.rating} ({card.wins}-{card.losses})"
             )
         return leaderboard
 
     def generate_tournament_report(self) -> dict:
-        avg_rating = sum(card.rating for card in self.cards.values()) // len(self.cards)
+        avg_rating = sum(card.rating
+                         for card in self.cards.values()) // len(self.cards)
         return {
             "total_cards": len(self.cards),
             "matches_played": self.matches_played,
