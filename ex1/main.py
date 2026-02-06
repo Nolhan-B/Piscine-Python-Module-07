@@ -26,7 +26,7 @@ def main() -> None:
         print(f"\nDrew: {card['e'].name} ({card['type']})")
         print("Play Result :", card['e'].play(mana))
 
-    print("\nPolymorphism in action: Same interface, dfferent card behaviors!")
+    print("\nPolymorphism in action: Same interface, different card behaviors!")
 
 if __name__ == "__main__":
     main()

@@ -22,6 +22,13 @@ class CreatureCard(Card):
             "effect": "Creature summoned to battlefield"
         }
 
+    def get_card_info(self) -> dict:
+        info = super().get_card_info()
+        info['type'] = 'Creature'
+        info['attack'] = self.attack
+        info['health'] = self.health
+        return info
+
     def attack_target(self, target):
         damage = self.attack
         if isinstance(target, str):

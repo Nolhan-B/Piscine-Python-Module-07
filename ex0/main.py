@@ -16,10 +16,16 @@ def main() -> None:
         print(res)
         print(f"\nFire Dragon attacks {goblin.name}")
         print(dragon.attack_target(goblin))
-    print("Playable: False")
+    else:
+        print("Playable: False")
     print("\nTesting insufficient mana (3 available):")
     mana_dict = {'mana': 3}
-    dragon.play(mana_dict)
+    if (dragon.is_playable(mana_dict['mana'])):
+        print("Playable: True")
+        res = dragon.play(mana_dict)
+        print(res)
+    else:
+        print("Playable: False")
 
     print("\nAbstract pattern successfully demonstrated!")
 

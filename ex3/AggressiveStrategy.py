@@ -2,8 +2,9 @@ from typing import List
 from ex0.CreatureCard import CreatureCard
 from ex1.SpellCard import SpellCard
 from ex1.ArtifactCard import ArtifactCard
+from ex3.GameStrategy import GameStrategy
 
-class AggressiveStrategy:
+class AggressiveStrategy(GameStrategy):
     def get_strategy_name(self) -> str:
         return "AggressiveStrategy"
 
